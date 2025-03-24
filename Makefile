@@ -22,15 +22,11 @@ lint: ## Lint the code locally
 .PHONY: local-env/start
 local-env/start: ## Start the local environment
 	@go run ./tools/generate-certs
-	@docker compose up -d
+	@docker-compose up -d
 
 .PHONY: local-env/stop
 local-env/stop: ## Stop the local environment
-	@docker compose stop
-
-.PHONY: local-env/teardown
-local-env/teardown: ## Kill containers and delete volumes
-	@docker compose down --volumes
+	@docker-compose local-env/stop
 
 .PHONY: publish
 publish: dagger/publish ## Publish with tag on git, docker hub, etc. locally
