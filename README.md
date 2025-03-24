@@ -1,6 +1,6 @@
 # Staffbase-Fork of AsyncAPI Codegen
 
-This is Staffbase's for of github.com/lerenn/asyncapi-codegen. We are forking
+This is Staffbase's fork of github.com/lerenn/asyncapi-codegen. We are forking
 because as of 2025-03-25, team SOM is blocked since there is no progress on
 https://github.com/lerenn/asyncapi-codegen/issues/271 and
 https://github.com/lerenn/asyncapi-codegen/pull/270. Once those issues are
