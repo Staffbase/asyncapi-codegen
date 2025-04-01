@@ -17,20 +17,16 @@ generate: ## Generate files locally
 
 .PHONY: lint
 lint: ## Lint the code locally
-	@go run github.com/golangci/golangci-lint/cmd/golangci-lint@v1.62.0 run ./...
+	@go run github.com/golangci/golangci-lint/cmd/golangci-lint@v1.55 run ./...
 
 .PHONY: local-env/start
 local-env/start: ## Start the local environment
 	@go run ./tools/generate-certs
-	@docker compose up -d
+	@docker-compose local-env/start -d
 
 .PHONY: local-env/stop
 local-env/stop: ## Stop the local environment
-	@docker compose stop
-
-.PHONY: local-env/teardown
-local-env/teardown: ## Kill containers and delete volumes
-	@docker compose down --volumes
+	@docker-compose local-env/stop
 
 .PHONY: publish
 publish: dagger/publish ## Publish with tag on git, docker hub, etc. locally
